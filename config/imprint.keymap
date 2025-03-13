@@ -20,7 +20,7 @@
 &kp LEFT_ALT  &kp Z   &kp X         &kp C   &kp V           &kp B                 &kp N       &kp M     &kp COMMA        &kp DOT   &kp FSLH  &mkp RCLK
                       &kp LEFT_WIN  &mo 2                                                               &kp LBKT         &kp RBKT
                                             &kp RET         &kp DEL  &mkp LCLK    &kp ESCAPE  &kp BSPC  &kp SPACE
-                                            &kp LEFT_SHIFT  &mo 1    &kp END      &kp CAPS    &mo 1     &kp RIGHT_SHIFT
+                                            &kp LEFT_SHIFT  &mo 1    &kp LCTRL    &kp RCTRL   &mo 1     &kp RIGHT_SHIFT
             >;
         };
 
@@ -33,7 +33,7 @@
 &trans         &trans        &trans        &trans        &trans           &trans               &kp HOME      &kp PAGE_DOWN  &kp PAGE_UP   &kp END       &trans    &mkp RCLK
                              &trans        &trans                                                                           &trans        &trans
                                                          &rgb_ug RGB_TOG  &trans  &mkp RCLK    &trans        &trans         &trans
-                                                         &trans           &trans  &kp HOME     &trans        &trans         &trans
+                                                         &trans           &trans  &trans       &trans        &trans         &trans
             >;
         };
 
@@ -56,7 +56,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
+        // this gets it to the default installation orientation,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // activate layer 3 within 500ms of the trackball moving
@@ -67,12 +67,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
+        // this gets it to the default installation orientation,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
